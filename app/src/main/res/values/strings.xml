@@ -1,0 +1,11 @@
+<resources>
+	<string name="app_name">webview-example</string>
+
+	<!--	User Response Prompts -->
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+
+	<!--	Close App Dialog -->
+	<string name="close_app">Close Application</string>
+	<string name="close_app_message">Do you want to close this application?</string>
+</resources>
