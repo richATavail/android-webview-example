@@ -24,6 +24,14 @@ class FileManager constructor(app: WebApp)
 		{
 			sf.writeText(sampleFileText)
 		}
+		val sd = File(appRootDir, sampleDir)
+		if (!sd.exists())
+		{
+			sd.mkdir()
+			val osf = File(sd, otherSampleFileName)
+			osf.writeText("Here's some text!")
+		}
+
 	}
 
 	/**
@@ -37,15 +45,16 @@ class FileManager constructor(app: WebApp)
 	 * @param failure
 	 *   Accepts a [Throwable] in the event there is a failure.
 	 */
+	@Suppress("RedundantSuspendModifier")
 	suspend fun listAppDirFiles (
 		then: (List<Pair<String, Boolean>>) -> Unit,
 		failure: (Throwable) -> Unit)
 	{
 		try
 		{
-			then(appRootDir.listFiles()?.map {
+			then(appRootDir.walk().map {
 				Pair(it.toRelativeString(appRootDir), it.isDirectory)
-			} ?: emptyList())
+			}.toList())
 		}
 		catch (e: Throwable)
 		{
@@ -63,6 +72,7 @@ class FileManager constructor(app: WebApp)
 	 * @param failure
 	 *   Accepts a [Throwable] in the event there is a failure.
 	 */
+	@Suppress("RedundantSuspendModifier")
 	suspend fun getFileContent (
 		target: String,
 		then: (ByteArray) -> Unit,
@@ -90,6 +100,7 @@ class FileManager constructor(app: WebApp)
 	 * @param failure
 	 *   Accepts a [Throwable] in the event there is a failure.
 	 */
+	@Suppress("RedundantSuspendModifier")
 	suspend fun saveFile (
 		target: String,
 		content: ByteArray,
@@ -113,6 +124,16 @@ class FileManager constructor(app: WebApp)
 		 * The name of the sample file we will write to disk.
 		 */
 		const val sampleFileName = "sample-file.txt"
+
+		/**
+		 * The name of the sample file we will write to disk.
+		 */
+		const val otherSampleFileName = "other-sample-file.txt"
+
+		/**
+		 * The name of a nested directory in the app's local file directory.
+		 */
+		const val sampleDir = "sample-dir"
 
 		/**
 		 * Just some random text to put in a the [sampleFileName].

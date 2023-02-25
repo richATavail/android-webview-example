@@ -6,7 +6,7 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.4.1")
-        classpath(kotlin("gradle-plugin", version = "1.7.10"))
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
     }
 }
 
@@ -23,7 +23,7 @@ plugins {
 
     // Kotlin Android plugin.
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.android
-    id ("org.jetbrains.kotlin.android") version "1.8.0" apply false
+    id ("org.jetbrains.kotlin.android") version "1.8.10" apply false
 }
 
 tasks {

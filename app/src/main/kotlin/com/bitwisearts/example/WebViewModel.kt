@@ -1,16 +1,17 @@
 package com.bitwisearts.example
 
+import android.webkit.WebView
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
- * The [ViewModel] for [MainActivity].
+ * The [ViewModel] for web app being presented in the [WebView].
  *
  * @author Richard Arriaga
  */
-class MainViewModel: ViewModel()
+class WebViewModel: ViewModel()
 {
 	/**
 	 * The [FileManager] used to manage files for this application.
@@ -73,6 +74,7 @@ class MainViewModel: ViewModel()
 	 * @param failure
 	 *   Accepts a [Throwable] in the event there is a failure.
 	 */
+	@Suppress("unused")
 	fun saveFile (
 		target: String,
 		content: ByteArray,

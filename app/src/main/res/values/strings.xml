@@ -1,11 +1,15 @@
 <resources>
-	<string name="app_name">webview-example</string>
+	<string name="app_name">WebView Example</string>
 
-	<!--	User Response Prompts -->
-	<string name="yes">Yes</string>
-	<string name="no">No</string>
+	<!--	Camera	-->
+	<string name="switch_camera_desc">button to switch camera</string>
+	<string name="take_pic_desc">take picture button</string>
+	<string name="nav_gallery_desc">open the photo gallery</string>
+	<string name="camera">Camera</string>
+	<string name="view_explain">This demonstrates navigating to a Composable view from the WebView. The back button should navigate to the WebView.</string>
 
-	<!--	Close App Dialog -->
-	<string name="close_app">Close Application</string>
-	<string name="close_app_message">Do you want to close this application?</string>
+	<!--	Barcode Scanner	-->
+	<string name="barcode_scanner">Scanner</string>
+	<!--	WebView -->
+	<string name="web_view">Open WebView</string>
 </resources>

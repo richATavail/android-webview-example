@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <script src="js/app.js"></script>
+    <title>Web App</title>
+</head>
 <body>
-<h1 style="text-align:center;">Example WebView App</h1>
+<h1 style="text-align:center;" data-i18n-key="header">Example WebView App</h1>
 <div>I'm being served up from the assets folder!</div>
 <div>
     <ul>
-        Some links for you
-        <li><a href="https://www.google.com/">Takes you to Google out on the web using the default browser!</a></li>
-        <li><a href="https://developer.android.com/develop/ui/views/layout/webapps/webview">Android Web Apps</a> </li>
-        <li><a href="https://developer.android.com/reference/android/webkit/WebView">Android WebView</a> </li>
-        <li><a href="https://developer.android.com/reference/android/webkit/WebSettings">Android WebSettings</a></li>
-        <li><a href="https://developer.android.com/reference/android/webkit/WebViewClient">Android WebViewClient</a> </li>
+        Some links for you. Each one runs <code>saveState()</code> before navigating away.
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="https://www.google.com/">Takes you to Google out on the web using the default browser!</a></li>
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="https://developer.android.com/develop/ui/views/layout/webapps/webview">Android Web Apps</a> </li>
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="https://developer.android.com/reference/android/webkit/WebView">Android WebView</a> </li>
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="https://developer.android.com/reference/android/webkit/WebSettings">Android WebSettings</a></li>
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="https://developer.android.com/reference/android/webkit/WebViewClient">Android WebViewClient</a> </li>
+        <li style="margin-top: 10px;"><a onclick="saveState()" href="internal.html">Navigate to another file in the assets folder</a></li>
     </ul>
-    <form action="internal.html">
-        <input type="submit" value="Navigate to another file in the assets folder" />
-    </form>
+    <div style="max-width:960px; margin: auto; text-align:center;">
+        <div style="margin-top: 40px;">
+            <button id="changeColor" type="button" onclick="this.style.backgroundColor='red'">Change color</button>
+        </div>
+    </div>
+    <div style="margin-top: 40px;">
+        <label for="toastMessage">Enter Toast: </label><input id="toastMessage" type="text" placeholder="Toast message"/>
+        <br/>
+        <button id="displayToast" type="button" onclick="displayToast()">Show toast</button>
+    </div>
+    <div style="margin-top: 40px;">
+        <label for="concat1">String 1:</label><input id="concat1" type="text" placeholder="Concatenate on"/>
+        <label for="concat2">String 2:</label><input id="concat2" type="text" placeholder="Append text"/>
+        <button
+                id="concat"
+                type="button"
+                onclick="concatPresentedStrings()">Concatenate</button>
+    </div>
+    <div style="margin-top: 40px;">
+        <button
+                id="barcodeScanner"
+                type="button"
+                onclick="scanBarcode()">Scan Barcode</button>
+    </div>
+    <div style="margin-top: 40px;">
+        <h3>Global Counter</h3>
+        <p id = "myCounter"></p>
+        <button
+                id="increment-counter"
+                type="button"
+                onclick="incrementMyCounterAndPopulate()">Increment Counter</button>
+    </div>
+    <div style="margin-top: 40px;">
+        <button
+                id="alert-file-list"
+                type="button"
+                onclick="getFileList()">Show Files on Disk</button>
+    </div>
+    <div style="margin-top: 30px;">
+        <button
+                id="getFile"
+                type="button"
+                onclick="getFile()">Get File From Android Disk</button>
+    </div>
+    <p id="fileContent"><span style="font-style:italic">The file text added below</span><br/><br/></p>
 
 </div>
+<script>checkFreshStart();</script>
 </body>
 </html>

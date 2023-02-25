@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <script src="js/app.js"></script>
+    <script>
+        /**
+        * Open the camera view in a native Android composable view. This navigates
+        * away from the web app's WebView. This does not use the asynchronous message
+        * passing architecture. The result of this will be the Android App navigates
+        * away from the WebView and shows an Android view created using Jetpack
+        * Compose.
+        */
+        function openCameraView () {
+            console.log("Calling openCameraView");
+            // noinspection JSUnresolvedFunction
+            ExampleNativeAndroidAPI.openCameraView();
+        }
+
+		// noinspection JSUnusedGlobalSymbols
+		/**
+         * This function is an empty duplicate defined in js/app.js that is used
+         * by the Native Android to save the web apps state. There is no state
+         * on this page, so there is no need to do anything. We just implement
+         * it so that an error isn't thrown when the native code calls it.
+		 */
+		function saveState() {
+			// Do nothing
+        }
+    </script>
     <title>Example Web App</title>
 </head>
 <body>
 <h1 style="text-align:center;">Internal Linked Page</h1>
 <div>I'm another HTML file in the assets folder!</div>
-
-<div style="max-width:960px; margin: auto; text-align:center;">
-    <div style="margin-top: 50px;">
-        <button id="changeColor" type="button" onclick="this.style.backgroundColor='red'">Change color</button>
-    </div>
-    <div style="margin-top: 50px;">
-        <label for="toastMessage">Enter Toast: </label><input id="toastMessage" type="text" placeholder="Toast message"/>
-        <br/>
-        <button id="displayToast" type="button" onclick="displayToast()">Show toast</button>
-    </div>
-    <div style="margin-top: 50px;">
-        <label for="concat1">String 1:</label><input id="concat1" type="text" placeholder="Concatenate on"/>
-        <label for="concat2">String 2:</label><input id="concat2" type="text" placeholder="Append text"/>
-        <button
-            id="concat"
-            type="button"
-            onclick="concatPresentedStrings()">Concatenate</button>
-    </div>
-    <div style="margin-top: 30px;">
-        <button
-            id="getFile"
-            type="button"
-            onclick="getFile()">Get File From Android Disk</button>
-    </div>
-    <p id="fileContent"><span style="font-style:italic">The file text added below</span><br/><br/></p>
+<img src="assets/some_image.png" alt="some random image">
+<div style="margin-top: 40px;">
+    <h3>Demonstrates navigating to a native Android screen built using a Composable.</h3>
+    <h3>The navigation will put this as the next view in the back stack.</h3>
+    <button
+        id="openCameraView"
+        type="button"
+        onclick="openCameraView()">Open Camera View</button>
 </div>
 </body>
 </html>
