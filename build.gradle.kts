@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:7.4.1")
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
     }
 }
@@ -15,11 +15,11 @@ plugins {
 
     // Specify that a module is an application.
     // https://developer.android.com/studio/releases/gradle-plugin
-    id ("com.android.application") version "7.4.1" apply false
+    id ("com.android.application") version "7.4.2" apply false
 
     // Specify that a module is a library.
     // https://developer.android.com/studio/projects/android-library
-    id ("com.android.library") version "7.4.1" apply false
+    id ("com.android.library") version "7.4.2" apply false
 
     // Kotlin Android plugin.
     // https://plugins.gradle.org/plugin/org.jetbrains.kotlin.android

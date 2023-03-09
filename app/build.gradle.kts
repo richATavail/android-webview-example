@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -12,7 +14,7 @@ android {
         minSdk = 29
         targetSdk = 33
         versionCode=  1
-        versionName = "1.0.0"
+        versionName = "1.0.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
@@ -56,7 +59,7 @@ dependencies {
 
     // Standard packages
     implementation("androidx.core:core-ktx:1.9.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
 
     // Jetpack Compose
@@ -75,9 +78,9 @@ dependencies {
     implementation("org.availlang:avail-json:2.1.1")
 
     // camera
-    implementation("androidx.camera:camera-camera2:1.3.0-alpha03")
-    implementation("androidx.camera:camera-view:1.3.0-alpha03")
-    implementation("androidx.camera:camera-lifecycle:1.3.0-alpha03")
+    implementation("androidx.camera:camera-camera2:1.3.0-alpha04")
+    implementation("androidx.camera:camera-view:1.3.0-alpha04")
+    implementation("androidx.camera:camera-lifecycle:1.3.0-alpha04")
 
     // barcode
     implementation("com.google.mlkit:barcode-scanning:17.0.3")
