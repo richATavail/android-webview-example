@@ -267,7 +267,10 @@ private fun webChromeClient() = object : WebChromeClient()
  * @param url
  *   The URL to load in the [WebView].
  * @param backHandlerEnabled
- *   The [MutableState] of Boolean that, when `true` indicates the
+ *   The [MutableState] of Boolean that, when `true` indicates the custom
+ *   [BackHandler] should be active.
+ * @param navController
+ *   The [NavController] used for screen navigation.
  */
 @Composable
 fun WebViewContent (
@@ -339,7 +342,7 @@ fun WebViewContent (
 
 	// While the WebView is active, we want to intercept the back button presses
 	// to navigate back on the WebView stack. If there is no where else to go
-	// we want to navigate
+	// we want to navigate back normally in the Android view.
 	BackHandler(backHandlerEnabled.value)
 	{
 		val wv = webView
